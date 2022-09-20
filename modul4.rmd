@@ -1,0 +1,113 @@
+---
+title: "Modul4"
+author: "Arya Gilang"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dslabs)
+data("murders")
+
+```
+
+```{r}
+sort(murders$population)
+pop <- murders$population
+index <- order(pop)
+
+
+
+```
+```{r }
+pop[index]
+
+order(index)
+```
+```{r}
+min(murders$total)
+```
+```{r}
+i_min <- which.min(murders$total)
+murders$state[i_min]
+```
+```{r}
+i_min <- which.min(murders$population)
+murders$state[i_min]
+```
+
+```{r}
+temp <- c(35, 88, 42, 84, 81, 30)
+city <- c("Beijing","Lagos","Paris","Rio de Janeiro","San Juan","Toronto")
+city_temps <- data.frame(name = city, temperature = temp)
+city_temps
+```
+
+
+```{r}
+ranks <- c(city_temps)
+```
+
+```{r}
+ranks
+
+```
+```{r}
+negara <- c("USA","Germany", "Engleand", "Qatar", "France")
+populasi <- c(1,3,2,5,4)
+my_df <- data.frame(negara = negara,populasi_rendah = populasi )
+my_df
+```
+```{r}
+ind <- order(my_df$populasi)
+my_df$populasi[ind]
+```
+
+
+
+```{r}
+population_in_millions <- murders$population/log10(murders$population)
+total_gun_murders <- murders$total
+plot(population_in_millions, total_gun_murders)
+```
+```{r}
+x <- with(murders, total_gun_murders / population_in_millions * murders$population)
+hist(x)
+
+
+```
+```{r}
+murders$rate <- with(murders, total_gun_murders / population_in_millions * murders$population)
+boxplot(rate~region, data = murders) 
+```
+
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

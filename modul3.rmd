@@ -1,0 +1,81 @@
+---
+title: "Data Murders"
+author: "Arya Gilang"
+date: "`r Sys.Date()`"
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##import data
+```{r}
+library(dslabs)
+data("murders")
+murders
+```
+## str (1. Jawaban D. Tidak Relevan)
+## State, Abb, Region, Population, total
+```{r}
+str(murders)
+```
+## state
+```{r}
+murders$abb
+a <- murders$abb
+```
+## Jenis class character
+```{r}
+
+class(a)
+```
+## Jenis class character
+```{r }
+murders$state
+b <- murders$state
+```
+## Jenis class character
+```{r }
+
+class(b)
+```
+## Nilai a dan b bernilai character/ sama 
+
+## levels murders
+```{r }
+
+levels(murders$region)
+```
+## length murders
+```{r }
+
+length(murders$region)
+```
+## table
+```{r }
+
+table(state.region)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
